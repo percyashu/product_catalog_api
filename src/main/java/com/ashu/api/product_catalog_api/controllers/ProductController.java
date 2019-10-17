@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -42,22 +43,26 @@ public class ProductController {
 
 	@ResponseBody
 	@PostMapping("/products/category/{categoryId}")
-	public ResponseEntity<?> saveProduct(@RequestBody ProductDTO productDTO, @PathVariable Integer categoryId) {
-		 Product product = productService.add(productDTO,categoryId);
+	public ResponseEntity<?> saveProduct(@RequestBody ProductDTO productDTO, @PathVariable Integer categoryId,@RequestParam("file") MultipartFile file) {
+		 Product product = productService.add(productDTO,categoryId,file);
 		 HttpHeaders responseHeaders = new
 		 HttpHeaders(); 
 		 URI newProductUri = ServletUriComponentsBuilder
 				 .fromCurrentRequest().path("/{categoryId}")
 				 .buildAndExpand(product.getId()).toUri();
-		 responseHeaders.setLocation(newProductUri); 
+		 responseHeaders.setLocation(newProductUri);
+		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+				.path("/downloadFile/")
+				.path(product.getName())
+				.toUriString();
 		 return new ResponseEntity<>(null,responseHeaders, HttpStatus.CREATED);
 		 
 
 	}
 
 	@PutMapping("/products/{productId}/category/{categoryId}")
-	public ResponseEntity<?> editProduct(@PathVariable Integer productId,@PathVariable Integer categoryId, @RequestBody ProductDTO productDTO) {
-		productService.edit(productId, productDTO,categoryId);
+	public ResponseEntity<?> editProduct(@PathVariable Integer productId,@PathVariable Integer categoryId, @RequestBody ProductDTO productDTO,@RequestParam("file") MultipartFile file) {
+		productService.edit(productId, productDTO,categoryId,file);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
 	}
