@@ -15,12 +15,17 @@ public class Product {
     private String name;
     private Integer quantity;
     private Double price;
-    @Lob
-    private byte[] image;
-    private String EnImage;
+    private String ImageUrl;
     @ManyToOne
-
     private Category category;
+
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
 
     public Integer getId() {
         return id;
@@ -62,22 +67,7 @@ public class Product {
         this.category = category;
     }
 
-    public byte[] getImage() {
-        return image;
-    }
 
-    public void setImage(byte[] image) {
-        this.image = image;
-
-    }
-
-    public String getEnImage() {
-        return EnImage;
-    }
-
-    public void setEnImage(String enImage) {
-        EnImage = enImage;
-    }
 
     @Override
     public String toString() {
@@ -86,8 +76,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +
-                ", image=" + Arrays.toString(image) +
-                ", EnImage='" + EnImage + '\'' +
                 ", category=" + category +
                 '}';
     }

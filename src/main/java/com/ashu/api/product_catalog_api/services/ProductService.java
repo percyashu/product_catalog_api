@@ -13,8 +13,8 @@ public interface ProductService {
 	
 	List<ProductDTO> generate();
 	ProductDTO generateOne(Integer id);
-	Product add(ProductDTO productDTO, int categoryId, MultipartFile file);
-	void edit(int id, ProductDTO productDTO, int productId, MultipartFile file);
+	Product add(ProductDTO productDTO, int categoryId);
+	void edit(int id, ProductDTO productDTO, int productId);
 	void del(int id);
 	
 	
