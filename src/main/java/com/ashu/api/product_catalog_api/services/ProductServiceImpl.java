@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
 		product.setQuantity(productDTO.getQuantity());
 		product.setPrice(productDTO.getPrice());
 
-		productDTO.setCategory(new Category(id, ""));
+		productDTO.setCategory(new Category(id, "",""));
 		product.setCategory(productDTO.getCategory());
 		repository.save(product);
 		return product;

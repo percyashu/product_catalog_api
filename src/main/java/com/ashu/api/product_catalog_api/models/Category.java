@@ -1,5 +1,7 @@
 package com.ashu.api.product_catalog_api.models;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,17 +11,21 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private int id;
-
+	@Column(unique = true)
 	private String name;
+	private String description;
 
-	public Category(int id, String name) {
+	public Category(int id, String name,String description) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.description=description;
+
 	}
 
 	public Category() {
 	}
+
 
 	public int getId() {
 		return id;
@@ -37,9 +43,21 @@ public class Category {
 		this.name = name;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Category [id=%s, name=%s]", id, name);
+		return "Category{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", description='" + description + '\'' +
+				'}';
 	}
 
 }

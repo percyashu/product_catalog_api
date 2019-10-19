@@ -1,9 +1,9 @@
 
-INSERT INTO category_tbl VALUES (1, 'Power & Electronics');
-INSERT INTO category_tbl VALUES(2, 'Office and Services');
-INSERT INTO category_tbl VALUES(3, 'Vehicles and Garage');
-INSERT INTO category_tbl VALUES(4, 'Cloths and Shoes');
-INSERT INTO category_tbl VALUES(5, 'Food and Nutrition');
+INSERT INTO category_tbl VALUES (1,'Electrical home appliances and Tech base goods', 'Power & Electronics');
+INSERT INTO category_tbl VALUES(2,'Office equipments and  addition installations ', 'Office and Services');
+INSERT INTO category_tbl VALUES(3,'Vehicles and Garage Based goods', 'Vehicles and Garage');
+INSERT INTO category_tbl VALUES(4,'Body wear and foot wear', 'Cloths and Shoes');
+INSERT INTO category_tbl VALUES(5,'Food and Nutrition goods', 'Food and Nutrition');
 
 INSERT INTO product_tbl  VALUES(1,'https://catalog-api-gg-c.herokuapp.com/api/products/1/image/1', 'MacBook Pro', 2000000, 10,1);
 INSERT INTO product_tbl  VALUES(2,'https://catalog-api-gg-c.herokuapp.com/api/products/2/image/2', 'ToolBox', 40000, 8,3);

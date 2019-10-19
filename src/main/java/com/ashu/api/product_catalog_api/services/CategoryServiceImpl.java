@@ -31,6 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
 			CategoryDTO categoryDTO = new CategoryDTO();
 			categoryDTO.setId(category.getId());
 			categoryDTO.setName(category.getName());
+			categoryDTO.setDescription(category.getDescription());
 			categoryDTOS.add(categoryDTO);
 			
 		}
@@ -41,6 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public Category add(CategoryDTO categoryDTO) {
 		Category category = new Category();
 		category.setName(categoryDTO.getName());
+		category.setDescription(categoryDTO.getDescription());
 		repository.save(category);
 		return category;
 	}
@@ -53,6 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
 			CategoryDTO categoryDTO = new CategoryDTO();
 			categoryDTO.setId(category.getId());
 			categoryDTO.setName(category.getName());
+			categoryDTO.setDescription(category.getDescription());
 			return categoryDTO;
 		}
 		else {
@@ -67,6 +70,7 @@ public class CategoryServiceImpl implements CategoryService {
 		if(bool!=false) {
 			Category category =repository.findById(id).get();
 			category.setName(categoryDTO.getName());
+			category.setDescription((categoryDTO.getDescription()));
 			repository.save(category);	
 		}
 		else {
