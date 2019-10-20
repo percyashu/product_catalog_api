@@ -32,8 +32,8 @@ public class SwaggerConfig {
 						"This shop arranges products under different categories. Each product can belong to one and\r\n" + 
 						"only one category and every category has a group of products. ")
 				.version("1.0")
-				.contact(new Contact("Percy", "https://github.com/percyashu/product-catalog-api",
-						"https://github.com/percyashu/product-catalog-api"))
+				.contact(new Contact("Percy", "https://github.com/percyashu/product_catalog_api",
+						"https://github.com/percyashu/product_catalog_api"))
 				.license("Apache 2.0")
 				.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
 				.build();
