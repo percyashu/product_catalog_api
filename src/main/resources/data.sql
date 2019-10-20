@@ -1,4 +1,7 @@
 
+
+
+
 -- INSERT INTO category_tbl VALUES (1,'Electrical home appliances and Tech base goods', 'Power & Electronics');
 -- INSERT INTO category_tbl VALUES(2,'Office equipments and  addition installations ', 'Office and Services');
 -- INSERT INTO category_tbl VALUES(3,'Vehicles and Garage Based goods', 'Vehicles and Garage');
