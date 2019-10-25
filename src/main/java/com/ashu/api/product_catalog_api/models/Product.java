@@ -1,6 +1,10 @@
 package com.ashu.api.product_catalog_api.models;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Arrays;
 
 @Entity
@@ -11,14 +15,18 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private Integer id;
-
+    @Column(unique = true)
+    @Size(min=5 , max=60,message ="Name must be between 5 to 60 characters" )
+    @NotNull
     private String name;
+    @NotNull(message = "Can not be Null")
     private Integer quantity;
+    @NotNull(message = "Can not be Null")
     private Double price;
     private String ImageUrl;
     @ManyToOne
     private Category category;
-
+    @ApiModelProperty(hidden = true)
     public String getImageUrl() {
         return ImageUrl;
     }
@@ -26,7 +34,7 @@ public class Product {
     public void setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
     }
-
+    @ApiModelProperty(hidden = true)
     public Integer getId() {
         return id;
     }
@@ -58,7 +66,7 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
-
+    @ApiModelProperty(hidden = true)
     public Category getCategory() {
         return category;
     }

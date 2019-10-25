@@ -3,6 +3,8 @@ package com.ashu.api.product_catalog_api.models;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "category_tbl")
@@ -12,6 +14,8 @@ public class Category {
 	@Column(name = "id", updatable = false, nullable = false)
 	private int id;
 	@Column(unique = true)
+	@Size(min=5 , max=60)
+	@NotNull(message = "Can not be Null")
 	private String name;
 	private String description;
 

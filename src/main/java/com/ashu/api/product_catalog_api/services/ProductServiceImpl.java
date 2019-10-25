@@ -1,9 +1,11 @@
 package com.ashu.api.product_catalog_api.services;
 
 import com.ashu.api.product_catalog_api.dto.ProductDTO;
+import com.ashu.api.product_catalog_api.exception.CategoryNotFoundException;
 import com.ashu.api.product_catalog_api.exception.ProductNotFoundException;
 import com.ashu.api.product_catalog_api.models.Category;
 import com.ashu.api.product_catalog_api.models.Product;
+import com.ashu.api.product_catalog_api.repository.CategoryRepository;
 import com.ashu.api.product_catalog_api.repository.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
 	private ProductRepository repository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 
 
 	@Autowired
@@ -44,16 +48,22 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product add(ProductDTO productDTO, int id) {
-		Product product = new Product();
 
+		boolean bool = categoryRepository.existsById(id);
+		if(bool!=false){
+		Product product = new Product();
 		product.setName(productDTO.getName());
 		product.setQuantity(productDTO.getQuantity());
 		product.setPrice(productDTO.getPrice());
-
 		productDTO.setCategory(new Category(id, "",""));
 		product.setCategory(productDTO.getCategory());
 		repository.save(product);
 		return product;
+		}
+		else {
+			throw new CategoryNotFoundException("CategoryId - "+id+" doesn't exist");
+
+		}
 	}
 
 	@Override
