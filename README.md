@@ -4,7 +4,7 @@
 Api to implement same functions of the ProductCatalog application using Heroku postgresSql for persistence.
 
 # Run Online
-It is deployed on heroku and it swagger ui is accessed through the following url online using https://catalo-api-gg-c.herokuapp.com/swagger-ui.html
+It is deployed on heroku and it swagger ui is accessed through the following url online using https://catalog-api-gg-c.herokuapp.com/swagger-ui.html
 
 # Run Locally
 1 Clone the project.
