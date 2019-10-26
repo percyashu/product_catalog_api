@@ -1,6 +1,7 @@
 package com.ashu.api.product_catalog_api.models;
 
 import org.springframework.beans.factory.annotation.Value;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
