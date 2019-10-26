@@ -30,7 +30,7 @@ public class Category {
 	public Category() {
 	}
 
-
+	@ApiModelProperty(hidden = true)
 	public int getId() {
 		return id;
 	}
