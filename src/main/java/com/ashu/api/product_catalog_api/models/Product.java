@@ -26,7 +26,6 @@ public class Product {
     private String ImageUrl;
     @ManyToOne
     private Category category;
-    @ApiModelProperty(hidden = true)
     public String getImageUrl() {
         return ImageUrl;
     }
