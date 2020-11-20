@@ -1,7 +1,7 @@
 # product_catalog_api
 
 # Description
-Api to implement same functions of the ProductCatalog application using Heroku postgresSql for persistence.
+Api to implement funtions to manage products and catalog. Where all users can get, update, delete and edit products and their category using Heroku postgresSql for persistence.
 
 # Run Online
 It is deployed on heroku and it swagger ui is accessed through the following url online using https://catalog-api-gg-c.herokuapp.com/swagger-ui.html
